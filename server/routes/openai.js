@@ -16,13 +16,13 @@ router.post("/text", async (req, res) => {
     const { text, activeChatId } = req.body;
 
     const response = await openai.createChatCompletion({
-        
+
       model: "gpt-3.5-turbo",
 
       messages: [
 
-        { role: "system", content: "AI text" }, 
-        { role: "user", content: text }, 
+        { role: "system", content: "AI text" },
+        { role: "user", content: text },
 
       ]
 
@@ -72,7 +72,7 @@ router.post("/code", async (req, res) => {
         {
           role: "system",
           content: "AI code",
-        }, 
+        },
 
         { role: "user", content: text }
 
@@ -124,8 +124,8 @@ router.post("/assist", async (req, res) => {
 
         {
           role: "system",
-          content:"AI assist",
-        }, 
+          content: "AI assist",
+        },
         { role: "user", content: `Finish my thought: ${text}` }
 
       ]

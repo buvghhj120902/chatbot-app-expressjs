@@ -36,12 +36,10 @@ const Chat = ({user, secret}) => {
           if(chatProps.chat?.title.startsWith("AiChat_")){
             return <Ai props={props} activeChat={chatProps.chat}/>
           }
-
           //Code
           if(chatProps.chat?.title.startsWith("AiCode_")){
             return <AiCode props={props} activeChat={chatProps.chat}/>
           }
-
           //Assist
           if(chatProps.chat?.title.startsWith("AiAssist_")){
             return <AiAssist props={props} activeChat={chatProps.chat}/>

@@ -9,11 +9,15 @@ function useDebounce(value, delay) {
     useEffect(() => {
 
         const handler = setTimeout(() => {
+
             setDebouncedValue(value)
+
         }, delay)
 
         return () =>{
+
             clearTimeout(handler)
+
         }
 
     }, [value, delay])
@@ -24,26 +28,28 @@ function useDebounce(value, delay) {
 
 const AiAssist = ({ props, activeChat }) => {
     
-  const [message, setMessage] = useState("");
-  const [attachment, setAttachment] = useState("");
-  const [triggerAssist, resultAssist] = usePostAiAssistMutation();
+  const [message, setMessage] = useState("")
+  const [attachment, setAttachment] = useState("")
+  const [triggerAssist, resultAssist] = usePostAiAssistMutation()
   const [appendText, setAppendText] = useState("")
 
-  const handleChange = (e) => setMessage(e.target.value);
+  const handleChange = (e) => setMessage(e.target.value)
 
   const handleSubmit = async () => {
-    const date = new Date()
-      .toISOString()
-      .replace("T", " ")
-      .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`);
-    const at = attachment ? [{ blob: attachment, file: attachment.name }] : [];
+
+    const date = new Date().toISOString().replace("T", " ").replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`)
+
+    const at = attachment ? [{ blob: attachment, file: attachment.name }] : []
+
     const form = {
+
       attachments: at,
       created: date,
       sender_username: props.username,
       text: message,
-      activeChatId: activeChat.id,
-    };
+      activeChatId: activeChat.id
+      
+    }
 
     props.onSubmit(form)
     setMessage("")
@@ -55,8 +61,10 @@ const AiAssist = ({ props, activeChat }) => {
   useEffect(() => {
 
     if(debouncedValue){
+
         const form = {text:message}
         triggerAssist(form)
+        
     }
     
   }, [debouncedValue])

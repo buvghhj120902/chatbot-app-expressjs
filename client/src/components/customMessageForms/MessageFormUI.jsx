@@ -14,10 +14,13 @@ const MessageFormUI = ({
     const [preview, setPreview] = useState("")
 
   return (
+   
     <div className='message-form-container'>
 
-    {preview && (
-        <div className='message-form-preview'>
+   {preview && 
+
+    (
+    <div className='message-form-preview'>
 
            <img 
             alt='message-form-preview'
@@ -33,8 +36,11 @@ const MessageFormUI = ({
                 setAttachment("")
              }}
             />
-        </div>
-    )}
+
+    </div>
+   )
+
+   }
 
     <div className='message-form'>
 
@@ -46,19 +52,21 @@ const MessageFormUI = ({
               value={message} 
               onChange={handleChange} 
               onKeyDown={handleKeyDown}
-              placeholder='Send message...'
+              placeholder='Hãy gửi tin nhắn...'
             />
 
-            {appendText && (
+            {appendText && 
 
+            (
             <input
                className='message-form-assist'
                type="text"
                disabled="disabled"
                value={`${message} ${appendText}`}
             />
+            )
 
-            )}
+            }
         
         </div>
 
