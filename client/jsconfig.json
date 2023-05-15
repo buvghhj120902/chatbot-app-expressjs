@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
 
+
       "paths": {
 
         "@/*": ["./src/*"]
@@ -8,4 +9,5 @@
       }
 
     }
+    
 }

@@ -40,6 +40,7 @@ const Ai = ({ props, activeChat }) => {
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />
+    
   )
 }
 

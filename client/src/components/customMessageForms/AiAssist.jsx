@@ -102,6 +102,7 @@ const AiAssist = ({ props, activeChat }) => {
       appendText={appendText}
       handleKeyDown={handleKeyDown}
     />
+    
   );
 };
 

@@ -63,6 +63,7 @@ const Login = ({setUser, setSecret}) => {
             />
          </div>
 
+
          <div className='login-actions'>
 
             {isRegister ? 

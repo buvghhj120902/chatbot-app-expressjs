@@ -45,6 +45,7 @@ const Chat = ({user, secret}) => {
             return <AiAssist props={props} activeChat={chatProps.chat}/>
           }
 
+          
              return(
 
                 <StandardMessageForm props={props} activeChat={chatProps.chat} />

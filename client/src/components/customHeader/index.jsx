@@ -29,6 +29,7 @@ const CustomHeader = ({chat}) => {
     </div>
 
   )
+  
 }
 
 export default CustomHeader

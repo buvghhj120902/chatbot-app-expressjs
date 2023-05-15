@@ -43,6 +43,7 @@ const StandardMessageForm = ({props, activeChat}) => {
   />
 
   )
+  
 }
 
 export default StandardMessageForm

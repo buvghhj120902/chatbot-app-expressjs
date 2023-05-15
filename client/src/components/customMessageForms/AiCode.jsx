@@ -40,6 +40,7 @@ const AiCode = ({ props, activeChat }) => {
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />
+    
   );
 };
 
