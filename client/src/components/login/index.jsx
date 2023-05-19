@@ -5,9 +5,13 @@ import { usePostLoginMutation, usePostSignUpMutation } from '@/state/api'
 const Login = ({setUser, setSecret}) => {
 
     const [isRegister, setIsRegister] = useState(false)
+
     const [username, setUsername] = useState("")
+
     const [password, setPassword]  = useState("")
+
     const [triggerLogin, resultLogin] = usePostLoginMutation()
+
     const [triggerSignUp] = usePostSignUpMutation()
 
     const handleLogin =() => {
@@ -34,6 +38,7 @@ const Login = ({setUser, setSecret}) => {
     }, [resultLogin.data])
 
   return (
+
     <div className='login-page'> 
 
        <div className='login-container'>
@@ -47,6 +52,7 @@ const Login = ({setUser, setSecret}) => {
          </p>
 
          <div>
+
             <input 
                type="text" 
                className='login-input' 
@@ -54,6 +60,7 @@ const Login = ({setUser, setSecret}) => {
                value={username} 
                onChange={(e) => setUsername(e.target.value)}
             />
+
              <input 
                type="password" 
                className='login-input' 
@@ -61,8 +68,8 @@ const Login = ({setUser, setSecret}) => {
                value={password} 
                onChange={(e) => setPassword(e.target.value)}
             />
-         </div>
 
+         </div>
 
          <div className='login-actions'>
 
@@ -77,6 +84,7 @@ const Login = ({setUser, setSecret}) => {
        </div>
 
     </div>
+    
   )
 }
 

@@ -1,145 +1,15 @@
 import express from 'express'
-import axios from 'axios'
-import dotenv from 'dotenv'
-import { openai } from '../index.js'
-
-dotenv.config()
+import { chatAiAssit, chatAiCode, chatAitext } from '../controllers/openai.controller.js'
 
 const router = express.Router()
 
-
 //Chat
-router.post("/text", async (req, res) => {
-
-  try {
-
-    const { text, activeChatId } = req.body;
-
-    const response = await openai.createChatCompletion({
-
-      model: "gpt-3.5-turbo",
-
-      messages: [
-
-        { role: "system", content: "AI text" },
-        { role: "user", content: text },
-
-      ]
-
-    })
-
-    await axios.post(
-
-      `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-
-      { text: response.data.choices[0].message.content },
-
-      {
-        headers: {
-
-          "Project-ID": process.env.PROJECT_ID,
-          "User-Name": process.env.BOT_USER_NAME,
-          "User-Secret": process.env.BOT_USER_SECRET,
-
-        }
-      }
-
-    )
-
-    res.status(200).json({ text: response.data.choices[0].message.content })
-
-  } catch (error) {
-
-    console.error("error", error.response.data.error)
-    res.status(500).json({ error: error.message })
-
-  }
-})
+router.post("/text", chatAitext)
 
 //Code
-router.post("/code", async (req, res) => {
-
-  try {
-
-    const { text, activeChatId } = req.body
-
-    const response = await openai.createChatCompletion({
-
-      model: "gpt-3.5-turbo",
-
-      messages: [
-
-        {
-          role: "system",
-          content: "AI code",
-        },
-
-        { role: "user", content: text }
-
-      ]
-
-    })
-
-    await axios.post(
-
-      `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-
-      { text: response.data.choices[0].message.content },
-
-      {
-        headers: {
-
-          "Project-ID": process.env.PROJECT_ID,
-          "User-Name": process.env.BOT_USER_NAME,
-          "User-Secret": process.env.BOT_USER_SECRET,
-
-        }
-      }
-
-    )
-
-    res.status(200).json({ text: response.data.choices[0].message.content })
-
-  } catch (error) {
-
-    console.error("error", error.response.data.error)
-    res.status(500).json({ error: error.message })
-
-  }
-
-})
+router.post("/code", chatAiCode)
 
 //Assist
-router.post("/assist", async (req, res) => {
-
-  try {
-
-    const { text } = req.body;
-
-    const response = await openai.createChatCompletion({
-
-      model: "gpt-3.5-turbo",
-
-      messages: [
-
-        {
-          role: "system",
-          content: "AI assist",
-        },
-        { role: "user", content: `Finish my thought: ${text}` }
-
-      ]
-
-    })
-
-    res.status(200).json({ text: response.data.choices[0].message.content })
-
-  } catch (error) {
-
-    console.error("error", error)
-    res.status(500).json({ error: error.message })
-
-  }
-})
+router.post("/assist", chatAiAssit)
 
 export default router

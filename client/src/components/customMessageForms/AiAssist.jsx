@@ -29,11 +29,18 @@ function useDebounce(value, delay) {
 const AiAssist = ({ props, activeChat }) => {
     
   const [message, setMessage] = useState("")
+
   const [attachment, setAttachment] = useState("")
-  const [triggerAssist, resultAssist] = usePostAiAssistMutation()
+
   const [appendText, setAppendText] = useState("")
 
-  const handleChange = (e) => setMessage(e.target.value)
+  const [triggerAssist, resultAssist] = usePostAiAssistMutation()
+
+  const handleChange = (e) => {
+
+    setMessage(e.target.value)
+
+  }
 
   const handleSubmit = async () => {
 
@@ -54,6 +61,7 @@ const AiAssist = ({ props, activeChat }) => {
     props.onSubmit(form)
     setMessage("")
     setAttachment("")
+
   }
 
   const debouncedValue = useDebounce(message, 1000)
@@ -93,17 +101,18 @@ const AiAssist = ({ props, activeChat }) => {
   }, [resultAssist])
 
   return (
+
     <MessageFormUI
       setAttachment={setAttachment}
       message={message}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
-
       appendText={appendText}
       handleKeyDown={handleKeyDown}
     />
     
-  );
-};
+  )
+
+}
 
 export default AiAssist;

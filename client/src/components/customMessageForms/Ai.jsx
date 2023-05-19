@@ -5,7 +5,9 @@ import MessageFormUI from "./MessageFormUI";
 const Ai = ({ props, activeChat }) => {
   
   const [message, setMessage] = useState("")
+
   const [attachment, setAttachment] = useState("")
+  
   const [trigger] = usePostAiTextMutation()
 
   const handleChange = (e) => setMessage(e.target.value)

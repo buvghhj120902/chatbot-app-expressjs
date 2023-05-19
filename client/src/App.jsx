@@ -6,6 +6,7 @@ import Login from "@/components/login"
 function App() {
 
   const [user, setUser] = useState(null)
+
   const [secret, setSecret] = useState(null)
 
   const isAuth =  Boolean(user) && Boolean(secret)
@@ -13,6 +14,7 @@ function App() {
   return (
     
       <div className="app">
+
         <BrowserRouter>
 
            <Routes>
@@ -24,6 +26,7 @@ function App() {
            </Routes>
 
         </BrowserRouter>
+        
       </div>
     
   )

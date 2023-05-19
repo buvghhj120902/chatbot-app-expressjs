@@ -12,16 +12,16 @@ import authRoute from './routes/auth.js'
 const app = express()
 dotenv.config()
 
+const port = process.env.PORT || 9000
+
 //Middleware
 app.use(express.json())
-app.use(helmet())
-app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
-app.use(morgan("common"))
-app.use(bodyParser.json({limit:"30mb", extended:true}))
-app.use(bodyParser.urlencoded({limit:"30mb", extended:true}))
 app.use(cors())
-
-const port = process.env.PORT || 9000 
+app.use(helmet())
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
+app.use(morgan("common"))
+app.use(bodyParser.json({ limit: "30mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 
 //Config OpenAi
 const configuration = new Configuration({
@@ -36,5 +36,7 @@ app.use("/openai", openaiRoute)
 app.use("/auth", authRoute)
 
 app.listen(port, () => {
-    console.log(`Server is running  at http://localhost:${port}`);
+
+    console.log(`Server is running  at http://localhost:${port}`)
+
 })

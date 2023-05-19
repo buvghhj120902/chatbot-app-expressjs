@@ -2,14 +2,7 @@ import React, { useState } from 'react'
 import {XMarkIcon, PaperClipIcon, PaperAirplaneIcon} from '@heroicons/react/24/solid'
 import Dropzone from 'react-dropzone'
 
-const MessageFormUI = ({
-    setAttachment,
-    message,
-    handleChange,
-    handleSubmit,
-    appendText,
-    handleKeyDown
-}) => {
+const MessageFormUI = ({setAttachment,message,handleChange,handleSubmit, appendText,handleKeyDown}) => {
 
     const [preview, setPreview] = useState("")
 
@@ -23,10 +16,10 @@ const MessageFormUI = ({
     <div className='message-form-preview'>
 
            <img 
-            alt='message-form-preview'
-            className='message-form-preview-image' 
-            src={preview} 
-            onLoad={() => URL.revokeObjectURL(preview)}
+               alt='message-form-preview'
+               className='message-form-preview-image' 
+               src={preview} 
+               onLoad={() => URL.revokeObjectURL(preview)}
             />
 
             <XMarkIcon
@@ -83,6 +76,7 @@ const MessageFormUI = ({
                
             }}
           >
+
             {({getRootProps, getInputProps, open}) => (
 
                 <div {...getRootProps()}>
@@ -96,6 +90,7 @@ const MessageFormUI = ({
                 </div>
                 
             )}
+            
           </Dropzone>
 
           <hr className='verical-line' />

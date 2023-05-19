@@ -4,6 +4,7 @@ import MessageFormUI from './MessageFormUI'
 const StandardMessageForm = ({props, activeChat}) => {
 
     const [message, setMessage] = useState("")
+    
     const [attachment, setAttachment] = useState("")
 
     const handleChange = (e) =>  setMessage(e.target.value)
@@ -34,12 +35,10 @@ const StandardMessageForm = ({props, activeChat}) => {
   return (
 
   <MessageFormUI
-
      setAttachment={setAttachment}
      message={message}
      handleChange={handleChange}
      handleSubmit={handleSubmit}
-
   />
 
   )
