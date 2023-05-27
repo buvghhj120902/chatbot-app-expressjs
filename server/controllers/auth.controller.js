@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+//Register
 export const signup = async (req, res) => {
 
     try {
@@ -27,13 +28,13 @@ export const signup = async (req, res) => {
 
     } catch (error) {
 
-        console.error("error", error.message)
         res.status(500).json({ error: error.message })
 
     }
 
 }
 
+//Login
 export const login = async (req, res) => {
 
     try {
@@ -59,7 +60,6 @@ export const login = async (req, res) => {
 
     } catch (error) {
 
-        console.error("error", error)
         res.status(500).json({ error: error.message })
 
     }

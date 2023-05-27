@@ -20,11 +20,16 @@ const CustomHeader = ({chat}) => {
            <PhoneIcon className='icon-phone'/>
 
            {chat.description !== "⬅️ ⬅️ ⬅️" 
+
            ? 
+
            (<p className='header-text'>{chat.description}</p>) 
+
            :
            (<p className='header-text'>Không có cuộc trò chuyện nào</p>)
+           
            }
+
 
         </div>
 

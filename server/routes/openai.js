@@ -3,13 +3,13 @@ import { chatAiAssit, chatAiCode, chatAitext } from '../controllers/openai.contr
 
 const router = express.Router()
 
-//Chat
+//Chatbot Text
 router.post("/text", chatAitext)
 
-//Code
+//Chatbot Code
 router.post("/code", chatAiCode)
 
-//Assist
+//Chatbot Assist
 router.post("/assist", chatAiAssit)
 
 export default router

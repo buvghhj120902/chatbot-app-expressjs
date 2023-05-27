@@ -12,7 +12,7 @@ const Chat = ({user, secret}) => {
 
     import.meta.env.VITE_PROJECT_ID,
     user,
-    secret
+    secret,
 
   )
 
@@ -32,19 +32,25 @@ const Chat = ({user, secret}) => {
 
          renderMessageForm={(props) => {
 
-          //Chat
+          //Chatbot Text
           if(chatProps.chat?.title.startsWith("AiChat_")){
+
             return <Ai props={props} activeChat={chatProps.chat}/>
+
           }
 
-          //Code
+          //Chatbot Code
           if(chatProps.chat?.title.startsWith("AiCode_")){
+
             return <AiCode props={props} activeChat={chatProps.chat}/>
+
           }
 
-          //Assist
+          //Chatbot Assist
           if(chatProps.chat?.title.startsWith("AiAssist_")){
+
             return <AiAssist props={props} activeChat={chatProps.chat}/>
+            
           }
 
           

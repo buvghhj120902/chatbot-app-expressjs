@@ -13,24 +13,26 @@ const MessageFormUI = ({setAttachment,message,handleChange,handleSubmit, appendT
    {preview && 
 
     (
-    <div className='message-form-preview'>
 
-           <img 
-               alt='message-form-preview'
-               className='message-form-preview-image' 
-               src={preview} 
-               onLoad={() => URL.revokeObjectURL(preview)}
-            />
+      <div className='message-form-preview'>
 
-            <XMarkIcon
-             className='message-form-icon-x'
-             onClick={() => {
-                setPreview("")
-                setAttachment("")
-             }}
-            />
+            <img 
+                  alt='message-form-preview'
+                  className='message-form-preview-image' 
+                  src={preview} 
+                  onLoad={() => URL.revokeObjectURL(preview)}
+               />
 
-    </div>
+               <XMarkIcon
+               className='message-form-icon-x'
+               onClick={() => {
+                  setPreview("")
+                  setAttachment("")
+               }}
+               />
+
+      </div>
+
    )
 
    }
@@ -87,6 +89,7 @@ const MessageFormUI = ({setAttachment,message,handleChange,handleSubmit, appendT
                       className='message-form-icon-clip'
                       onClick={open}
                    />
+
                 </div>
                 
             )}
@@ -105,12 +108,12 @@ const MessageFormUI = ({setAttachment,message,handleChange,handleSubmit, appendT
 
         </div>
         
-
     </div>
 
 </div>
 
-  )
+)
+
 }
 
 export default MessageFormUI

@@ -5,69 +5,91 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
     reducerPath: "main",
     tagTypes: [],
-    endpoints: (build) => ({
+    endpoints: (build) => (
+        {
 
-        postAiText: build.mutation({
+            postAiText: build.mutation(
+                {
 
-            query: (payload) => ({
+                    query: (payload) => (
+                        {
 
-                url: "openai/text",
-                method: "POST",
-                body: payload,
+                            url: "openai/text",
+                            method: "POST",
+                            body: payload,
 
-            })
+                        }
+                    )
 
-        }),
+                },
+            ),
 
-        postAiCode: build.mutation({
+            postAiCode: build.mutation(
+                {
 
-            query: (payload) => ({
+                    query: (payload) => (
+                        {
 
-                url: "openai/code",
-                method: "POST",
-                body: payload,
+                            url: "openai/code",
+                            method: "POST",
+                            body: payload,
 
-            })
+                        }
+                    )
 
-        }),
+                },
+            ),
 
-        postAiAssist: build.mutation({
+            postAiAssist: build.mutation(
+                {
 
-            query: (payload) => ({
+                    query: (payload) => (
+                        {
 
-                url: "openai/assist",
-                method: "POST",
-                body: payload,
+                            url: "openai/assist",
+                            method: "POST",
+                            body: payload,
 
-            })
+                        }
+                    )
 
-        }),
+                },
+            ),
 
-        postLogin: build.mutation({
+            postLogin: build.mutation(
+                {
 
-            query: (payload) => ({
+                    query: (payload) => (
+                        {
 
-                url: "auth/login",
-                method: "POST",
-                body: payload,
+                            url: "auth/login",
+                            method: "POST",
+                            body: payload,
 
-            })
+                        }
+                    )
 
-        }),
+                },
+            ),
 
-        postSignUp: build.mutation({
+            postSignUp: build.mutation(
+                {
 
-            query: (payload) => ({
+                    query: (payload) => (
+                        {
 
-                url: "auth/signup",
-                method: "POST",
-                body: payload,
+                            url: "auth/signup",
+                            method: "POST",
+                            body: payload,
 
-            })
+                        }
+                    )
 
-        })
+                },
+            ),
 
-    })
+        }
+    )
 
 })
 

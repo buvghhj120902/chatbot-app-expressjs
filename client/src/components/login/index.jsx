@@ -35,7 +35,7 @@ const Login = ({setUser, setSecret}) => {
 
         }
 
-    }, [resultLogin.data])
+    },[resultLogin.data])
 
   return (
 
@@ -73,10 +73,15 @@ const Login = ({setUser, setSecret}) => {
 
          <div className='login-actions'>
 
-            {isRegister ? 
+            {isRegister 
+
+            ? 
             (<button type='button' onClick={handleRegister}>Đăng ký</button>) 
+
             :
+
             (<button type='button' onClick={handleLogin}>Đăng nhập</button>)
+            
             }
 
          </div>
